@@ -28,8 +28,8 @@ local LatestVersion = ''; CurrentVersion = '1.0.0'
 		print('##                   ##')
 		print('##   Kleidungs Menu  ##')
 		print('##  Scriptet by Lisa ##')
-    		print('##                   ##')
-        	print('##                   ##')
+        print('##                   ##')
+        print('##                   ##')
 		print('#######################')
 		print('\n')
 

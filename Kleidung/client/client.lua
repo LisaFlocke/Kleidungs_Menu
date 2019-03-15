@@ -22,44 +22,44 @@
 
 RegisterNetEvent("GUI:Title")
 AddEventHandler("GUI:Title", function(title)
-	MenuM.Title(title)
+	Menu.Title(title)
 end)
 
 RegisterNetEvent("GUI:Option")
 AddEventHandler("GUI:Option", function(option, cb)
-	cb(MenuM.Option(option))
+	cb(Menu.Option(option))
 end)
 
 RegisterNetEvent("GUI:Bool")
 AddEventHandler("GUI:Bool", function(option, bool, cb)
-	MenuM.Bool(option, bool, function(data)
+	Menu.Bool(option, bool, function(data)
 		cb(data)
 	end)
 end)
 
 RegisterNetEvent("GUI:Int")
 AddEventHandler("GUI:Int", function(option, int, min, max, cb)
-	MenuM.Int(option, int, min, max, function(data)
+	Menu.Int(option, int, min, max, function(data)
 		cb(data)
 	end)
 end)
 
 RegisterNetEvent("GUI:StringArray")
 AddEventHandler("GUI:StringArray", function(option, array, position, cb)
-	MenuM.StringArray(option, array, position, function(data)
+	Menu.StringArray(option, array, position, function(data)
 		cb(data)
 	end)
 end)
 
 RegisterNetEvent("GUI:Update")
 AddEventHandler("GUI:Update", function()
-	MenuM.updateSelection()
+	Menu.updateSelection()
 end)
 
 Citizen.CreateThread(function()
 	TriggerServerEvent("player_join")
 
-	local MenuM = false
+	local Menu = false
 	local bool = false
 	local int = 0
 	local position = 1
@@ -68,11 +68,11 @@ Citizen.CreateThread(function()
 	while true do
 
 		if(IsControlJustPressed(0, 289)) then
-			MenuM = not MenuM
+			Menu = not Menu
 		end
 
-		if(MenuM) then
-			TriggerEvent("GUI:Title", "Kleidungs MenuM")
+		if(Menu) then
+			TriggerEvent("GUI:Title", "Kleidungs Menu")
 			TriggerEvent("GUI:Option", "Maske Absetzen", function(cb)		--Maske Absetzen
 				if(cb) then
 					SetPedComponentVariation(GetPlayerPed(-1), 1, 0, 240, 0)	
